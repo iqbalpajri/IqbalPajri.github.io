@@ -126,8 +126,9 @@ nav {
 }
 
 .rounded-photo {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: auto;
+    aspect-ratio: 1 / 1; /* Jaga agar tetap bujur sangkar */
     border-radius: 50%;  /* Untuk gambar bulat */
     object-fit: cover;   /* Pastikan gambar tetap proporsional */
     border: 5px solid var(--primary-color);
