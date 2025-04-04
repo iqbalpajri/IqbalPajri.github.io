@@ -1,0 +1,732 @@
+/* ========== VARIABLES ========== */
+:root {
+    --primary-color: #3a86ff;
+    --secondary-color: #ff6b6b;
+    --dark-color: #121212;
+    --card-color: #1e1e1e;
+    --text-color: #f5f5f5;
+    --secondary-text-color: #cccccc;
+}
+
+/* ========== PAGE BASE ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* ========== NAVIGATION ========== */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    height: 60px;
+    background-color: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(68, 68, 68, 0.3);
+}
+
+/* Tombol burger hanya muncul di layar kecil */
+.burger-menu {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 1100;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 15px rgba(58, 134, 255, 0.5);
+}
+
+.menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+}
+
+.menu a:hover {
+    color: var(--primary-color);
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+/* ========== MAIN SECTION ========== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+    padding-top: 120px;  /* Pastikan ini cukup untuk menghindari navbar */
+    margin-bottom: 0;  /* Jika tidak perlu margin bawah, hilangkan */
+    background: radial-gradient(ellipse at bottom, #1a1a1a 0%, #000 100%);
+}
+
+.profile-photo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.rounded-photo {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;  /* Untuk gambar bulat */
+    object-fit: cover;   /* Pastikan gambar tetap proporsional */
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    animation: floating 4s ease-in-out infinite;
+    transition: all 0.3s ease;
+}
+
+.round-photo:hover {
+    transform: scale(1.03) rotate(2deg);
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.main-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.main-text h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.main-text h1 span {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.main-text p {
+    font-size: 1.1rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+.main-button {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    margin-top: 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(58, 134, 255, 0.3);
+}
+
+.main-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(58, 134, 255, 0.4);
+}
+
+
+/* ========== ABOUT ME ========== */
+.about {
+    padding: 6rem 10%;
+    background-color: var(--card-color);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+.about-photo {
+    text-align: center;
+}
+
+.small-round-photo {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 10px 30px rgba(58, 134, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.small-round-photo:hover {
+    transform: scale(1.05);
+}
+
+.about-description h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    margin-top: 10px;
+}
+
+.subtitle {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: var(--secondary-text-color);
+}
+
+.about-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.about-list li {
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.8rem;
+    color: var(--secondary-text-color);
+}
+
+.about-list li::before {
+    content: "✓";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.additional-info {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.info-item {
+    background: rgba(58, 134, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateY(-5px);
+}
+
+.label {
+    display: block;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+}
+
+.value {
+    color: var(--secondary-text-color);
+}
+
+/* ========== PROJECTS ========== */
+
+.projects {
+    padding: 4rem 10%;
+    background-color: var(--card-color);
+    margin-bottom: 0;
+    padding-top: 100px;  /* Tambahkan jarak agar tidak tertutup navbar */
+}
+
+.section-title h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.project-card {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.project-card h3 {
+    font-size: 1.8rem;
+    margin-top: 1rem;
+}
+
+.project-card p {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    color: var(--secondary-text-color);
+}
+
+/* ========== SKILLS ========== */
+#skills {
+    padding: 3rem 10%;
+    background-color: var(--card-color);
+    margin-top: 0px;
+    margin-bottom: 100px;
+    text-align: center;
+    padding-top: 125px;  /* Tambahkan jarak agar tidak tertutup navbar */
+}
+
+.skills-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.skill-box {
+    background-color: var(--primary-color);  /* Memastikan warna latar belakang tetap biru */
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%; /* Agar ukuran kotak mengikuti lebar */
+    max-width: 200px; /* Membatasi lebar maksimum */
+    box-sizing: border-box;
+    word-wrap: break-word; /* Agar teks tidak keluar dari kotak */
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.skill-box h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.skill-progress {
+    height: 10px;
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+.html { background-color: #f16529 !important; width: 80%; }
+.css { background-color: #2965f1 !important; width: 75%; }
+.javascript { background-color: #f7df1e !important; width: 60%; }
+.bootstrap { background-color: #563d7c !important; width: 70%; }
+
+.skill-box p {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+/* Contact Form */
+.contact {
+    padding: 50px 5%;
+    text-align: center;
+}
+
+.contact .section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.contact form {
+    max-width: 500px;
+    margin: -20px auto 0 auto;
+    display: grid;
+    grid-gap: 15px;
+    text-align: left;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-subtitle {
+    margin-top: 10px; /* atur jarak dari form */
+    font-size: 1rem;
+    color: #555;
+}
+
+.contact .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact .form-group label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.contact .form-group input,
+.contact .form-group textarea {
+    padding: 10px;
+    font-size: 1rem;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact .form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact .submit-button {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact .submit-button:hover {
+    background-color: #0056b3;
+}
+
+/* ========== Sosial Media Icon ========== */
+
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons a {
+    font-size: 24px;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #007bff;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 992px) {
+    .main {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 100px;
+    }
+    
+    .main-text {
+        margin-top: 3rem;
+    }
+    
+    .round-photo {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-photo {
+        margin-bottom: 2rem;
+    }
+}
+
+/* ===== Media Query untuk Layar Kecil ===== */
+@media (max-width: 768px) {
+
+    .burger-menu {
+        display: block;
+    }
+
+    /* Responsif untuk navigasi menu */
+    .menu {
+        display: flex; /* Tetap gunakan flex agar bisa diubah dengan class */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgba(30, 30, 30, 0.95);
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+        
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        
+        transition: opacity 0.3s ease-in-out, 
+                    transform 0.3s ease-in-out, 
+                    max-height 0.3s ease-in-out;
+        
+        overflow: hidden;
+        max-height: 0; /* Awalnya 0 agar tidak terlihat */
+    }
+
+    .menu a {
+        display: block;
+        padding: 1rem;
+        color: white;
+        text-decoration: none;
+    }
+
+    /* Jika tombol burger diklik, menu muncul */
+    .menu.menu-active {
+        display: flex;
+        opacity: 1; /* Harus 1 agar menu terlihat */
+        visibility: visible;
+        transform: translateY(0);
+        flex-direction: column;
+        max-height: 500px; /* Sesuaikan dengan tinggi menu */
+        transition: opacity 0.3s ease-in-out, 
+                    transform 0.3s ease-in-out, 
+                    max-height 0.3s ease-in-out;
+    }
+      
+
+    /* Mengatur tampilan hero section */
+    .hero {
+        flex-direction: column;
+        padding: 150px 5% 20px 5%; /* Kurangi padding-top untuk responsif lebih baik */
+        text-align: center;
+    }
+
+    /* Mengatur foto profil di hero section */
+    .profile-picture {
+        margin-bottom: 1rem;
+    }
+
+    .rounded-photo {
+        width: 180px; /* Mengurangi ukuran foto agar lebih kecil di perangkat mobile */
+        height: 180px;
+    }
+
+    .hero-text h1 {
+        margin-top: 1.5rem;
+        font-size: 1.8rem; /* Menyesuaikan ukuran font */
+    }
+
+    .main-button {
+        margin-top: 2rem;
+        padding: 1rem 2.2rem;
+        font-size: 1rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr 1fr; /* Menggunakan grid dua kolom */
+        gap: 20px;
+    }
+
+    .skill-box {
+        max-width: 100%; /* Menyesuaikan lebar kotak skill agar penuh pada layar kecil */
+        margin-bottom: 20px;
+    }
+}
+
+
+
+/* ===== Media Query untuk Layar Sangat Kecil (Mobile) ===== */
+@media (max-width: 480px) {
+    /* Mengurangi padding dan ukuran font untuk tampilan mobile */
+    .hero {
+        margin-bottom: 1rem;
+    }
+
+    .rounded-photo {
+        width: 180px;  /* Menyesuaikan lebih kecil lagi */
+        height: 180px;
+    }
+
+    .main-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .main-text p {
+        font-size: 1rem;
+    }
+
+    .main-button {
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-box {
+        max-width: 90%; /* Menyesuaikan lebar kotak lebih besar pada layar sangat kecil */
+    }
+}
+
+/* ===== Media Query untuk Tablet atau Lebih Besar ===== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Menyesuaikan layout untuk tablet */
+    .about-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .rounded-photo {
+        width: 230px;
+        height: 230px;
+    }
+}
+
+/* ===== Media Query untuk yang Lebih Kecil ===== */
+@media only screen and (max-width: 375px) {
+    /* Aturan untuk perangkat dengan lebar 375px atau lebih kecil (seperti iPhone SE) */
+    
+    /* Mengatur ukuran font */
+    body {
+        font-size: 14px; /* Menyesuaikan ukuran font */
+        line-height: 1.5;
+    }
+
+    /* Menyesuaikan ukuran header */
+    .hero-text h1 {
+        font-size: 20px; /* Menurunkan ukuran font untuk header */
+        margin-bottom: 10px;
+    }
+
+    .hero-text p {
+        font-size: 14px; /* Menyesuaikan ukuran font untuk paragraf */
+    }
+
+    /* Memperbesar tombol */
+    .main-button {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+
+    /* Mengatur foto profil di hero section */
+    .profile-picture img {
+        width: 150px; /* Menurunkan ukuran foto */
+        height: 150px;
+    }
+
+    /* Mengatur tampilan hero section */
+    .hero {
+        padding: 120px 5% 20px 5%; /* Menurunkan padding top untuk lebih responsif */
+        text-align: center;
+    }
+
+    /* Mengatur grid projects */
+    .projects-grid {
+        grid-template-columns: 1fr; /* Menyusun proyek dalam satu kolom */
+    }
+
+    /* Skill box */
+    .skill-box {
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+
+    /* Mengatur menu navigasi */
+    .menu {
+        display: block;
+        text-align: center;
+    }
+
+    .menu a {
+        font-size: 14px; /* Menurunkan ukuran font menu */
+    }
+
+    /* Mengatur tampilan footer */
+    footer {
+        font-size: 12px;
+    }
+
+    /* Mengatur burger menu */
+    .burger-menu {
+        font-size: 30px; /* Menyesuaikan ukuran burger menu */
+    }
+}
+
+
+
+
