@@ -297,6 +297,44 @@ nav {
     color: var(--secondary-text-color);
 }
 
+/* ========== tombol Document ========== */
+ 
+/* ========== DOCUMENT BUTTONS (CV & Certificates) ========== */
+
+.documents {
+    padding: 60px 10%;
+    background-color: var(--card-color);
+    text-align: center;
+  }
+  
+  .document-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .doc-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 5px 15px rgba(58, 134, 255, 0.3);
+  }
+  
+  .doc-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+  }
+  
+
 /* ========== PROJECTS ========== */
 
 .projects {
